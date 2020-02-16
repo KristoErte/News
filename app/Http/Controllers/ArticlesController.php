@@ -25,7 +25,7 @@ class ArticlesController extends Controller
         $fullUrl = "{$url}?{$queryString}";
 
         $view = view('articles', compact('articles'))->render();
-        return cache()->remember($fullUrl, Carbon::now()->addSeconds(5), function () use ($view) {
+        return cache()->remember($fullUrl, Carbon::now()->addMinutes(5), function () use ($view) {
             return $view;
         });
     }
@@ -35,7 +35,7 @@ class ArticlesController extends Controller
         $page = $request->input('page');
         $articles = Article::skip((int)$page * 10)->orderBy('date', 'DESC')->paginate(10);
         $view = view('data', compact('articles'))->render();
-        return cache()->remember($page, Carbon::now()->addSeconds(5), function () use ($view) {
+        return cache()->remember($page, Carbon::now()->addMinutes(5), function () use ($view) {
             return  response()->json(['html'=>$view]);
         });
     }
