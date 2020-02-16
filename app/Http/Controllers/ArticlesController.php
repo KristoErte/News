@@ -33,7 +33,7 @@ class ArticlesController extends Controller
     public function loadMoreData(Request $request) {
 
         $page = $request->input('page');
-        $articles = Article::skip((int)$page * 10)->orderBy('date', 'SORT_DESC')->paginate(10);
+        $articles = Article::skip((int)$page * 10)->orderBy('date', 'DESC')->paginate(10);
         $view = view('data', compact('articles'))->render();
         return cache()->remember($page, Carbon::now()->addSeconds(5), function () use ($view) {
             return  response()->json(['html'=>$view]);

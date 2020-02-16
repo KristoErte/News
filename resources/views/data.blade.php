@@ -3,13 +3,9 @@
         <h5><a href="">{{ $article->title }}</a></h5>
         <p>{{ $article->desc }}</p>
         <p>{{ $article->date }}</p>
-
-
         <div class="text-right">
             <button class="btn btn-success">Loe uudist</button>
         </div>
-
-
         <hr style="margin-top:5px;">
     </div>
 @endforeach

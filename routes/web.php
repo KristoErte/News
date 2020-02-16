@@ -11,17 +11,13 @@
 |
 */
 
+Route::get('/', [
+    'uses' => 'ArticlesController@articles',
+    'as'   => 'articles.articles',
+]);
 
-Route::group(['prefix' => 'articles'], function () {
-    Route::get('/', [
-        'uses' => 'ArticlesController@articles',
-        'as'   => 'articles.articles',
-    ]);
+Route::post('/', [
+    'uses' => 'ArticlesController@loadMoreData',
+    'as'   => 'articles.loadMoreData',
+]);
 
-    Route::post('/', [
-        'uses' => 'ArticlesController@loadMoreData',
-        'as'   => 'articles.loadMoreData',
-    ]);
-
-
-});

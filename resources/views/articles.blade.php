@@ -8,7 +8,7 @@
 
         .ajax-load{
             background: #e1e1e1;
-            padding: 10px 0px;
+            padding: 10px 0;
             width: 100%;
         }
     </style>
